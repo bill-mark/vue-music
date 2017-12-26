@@ -111,14 +111,18 @@ export default {
             this.slider.goToPage(pageIndex, 0, 400)
           }, this.interval)
       }
+    },
+    destroyed(){
+      clearTimeout(this.timer)
     }
 }
 </script>
 <style scoped lang="stylus" rel="stylesheet/stylus">
-  @import "../../common/stylus/variable"
+  @import "~common/stylus/variable"
 
   .slider
     min-height: 1px
+    position:relative
     .slider-group
       position: relative
       overflow: hidden
@@ -136,7 +140,6 @@ export default {
         img
           display: block
           width: 100%
-          height:6.4rem
     .dots
       position: absolute
       right: 0
@@ -152,12 +155,9 @@ export default {
         border-radius: 50%
         background: $color-text-l
         &.active
-          display: inline-block
-          margin: 0 4px
-          width: 8px
-          height: 8px
-          border-radius: 50%
-          background: rgba(0,0,0,0.6)
+          width: 20px
+          border-radius: 5px
+          background: $color-text-ll
 </style>
 
 
